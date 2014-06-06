@@ -1,4 +1,4 @@
-# [Carawebs](http://carawebs.com) fork of the [Roots](http://roots.io/) starter theme.
+#Fork of the [Roots](http://roots.io/) starter theme.
 
 This is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) & [Bootstrap](http://getbootstrap.com/) that will help you make better themes.
 
