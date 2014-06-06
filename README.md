@@ -10,7 +10,7 @@ This is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boile
 
 ## Installation
 
-Clone the git repo - `git clone git://github.com/roots/roots.git` - or [download it](https://github.com/roots/roots/zipball/master) and then rename the directory to the name of your theme or website. [Install Grunt](http://gruntjs.com/getting-started), and then install the dependencies for Roots contained in `package.json` by running the following from the Roots theme directory:
+Clone this repo and then rename the directory to the name of your theme or website. [Install Grunt](http://gruntjs.com/getting-started), and then install the dependencies for Roots contained in `package.json` by running the following from the Roots theme directory:
 
 ```
 npm install
@@ -27,6 +27,24 @@ After you've installed Grunt and ran `npm install` from the theme root, use `gru
 Edit `lib/config.php` to enable or disable support for various theme functions and to define constants that are used throughout the theme.
 
 Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
+
+## Full Width Wrapper Mod
+To allow full width wrappers, remove the "container" class from the base wrapper in `base.php`. The following code removes the container selectively:
+~~~
+<div class="wrap <?php if ( is_front_page() || is_page(70) || is_page(69)  ): ?>container-fluid<?php else: ?>container<?php endif; ?>" role="document">
+    <!-- DE removed .container on Front Page to make wrapper full width -->
+    <div class="content <?php if ( !is_front_page() ): ?>row<?php endif; ?>">
+      <main class="main <?php echo roots_main_class(); ?>" role="main">
+        <?php include roots_template_path(); ?>
+      </main><!-- /.main -->
+      <?php if (roots_display_sidebar()) : ?>
+        <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
+          <?php include roots_sidebar_path(); ?>
+        </aside><!-- /.sidebar -->
+      <?php endif; ?>
+    </div><!-- /.content -->
+  </div><!-- /.wrap -->
+~~~
 
 ## Documentation
 
