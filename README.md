@@ -31,9 +31,10 @@ Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
 ## Full Width Wrapper Mod
 To allow full width wrappers, remove the "container" class from the base wrapper in `base.php`. The following code removes the container selectively:
 ~~~
-<div class="wrap <?php if ( is_front_page() || is_page(70) || is_page(69)  ): ?>container-fluid<?php else: ?>container<?php endif; ?>" role="document">
-    <!-- DE removed .container on Front Page to make wrapper full width -->
+<div class="wrap <?php if ( is_front_page() || is_page(70)  ): ?>container-fluid<?php else: ?>container<?php endif; ?>" role="document">
+    <!-- .container-fluid on selected pages to make the wrapper full width -->
     <div class="content <?php if ( !is_front_page() ): ?>row<?php endif; ?>">
+    <!-- remove "row" on front page -->
       <main class="main <?php echo roots_main_class(); ?>" role="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
